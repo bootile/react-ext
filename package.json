@@ -1,8 +1,9 @@
 {
   "name": "es-base",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "public base project for all es-portal related projects",
   "main": "src/index.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

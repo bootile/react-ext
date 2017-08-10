@@ -3,7 +3,9 @@ import {
   Route as RRoute,
   RouteProps,
   Link as LLink,
-  LinkProps
+  LinkProps,
+  NavLink as NNavLink,
+  NavLinkProps
 } from "react-router-dom"
 
 export function Route(props: RouteProps) {
@@ -24,6 +26,19 @@ export function Link(props: LinkProps) {
     return <LLink {...props} to={newTo} />
   }
   return <LLink {...props} />
+}
+
+export function NavLink(props: NavLinkProps) {
+  if (typeof props.to === "string") {
+    return <NNavLink {...props} to={getPath(props.to)} />
+  } else if (typeof props.to === "object" && props.to.pathname) {
+    const newTo = {
+      ...props.to,
+      pathname: getPath(props.to.pathname)
+    }
+    return <NNavLink {...props} to={newTo} />
+  }
+  return <NNavLink {...props} />
 }
 
 function getPath(path: string) {

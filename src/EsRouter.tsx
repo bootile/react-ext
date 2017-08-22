@@ -10,6 +10,8 @@ import {
 } from "react-router-dom"
 import { RedirectProps } from "react-router"
 
+export * from "react-router-dom"
+
 export function Route(props: RouteProps) {
   if (props && props.path) {
     return <RRoute {...props} path={getPath(props.path)} />

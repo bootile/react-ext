@@ -1,6 +1,6 @@
 {
   "name": "es-base",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "public base project for all es-portal related projects",
   "main": "src/index.ts",
   "scripts": {

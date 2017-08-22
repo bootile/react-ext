@@ -1,6 +1,26 @@
 import * as React from "react"
 import { observable, action } from "mobx"
-import { ModalProps } from "antd/lib/modal/Modal.d"
+// import { ModalProps } from "antd/lib/modal/Modal.d"
+interface IModalProps {
+  visible?: boolean
+  confirmLoading?: boolean
+  title?: React.ReactNode | string
+  closable?: boolean
+  onOk?: (e: React.MouseEvent<any>) => void
+  onCancel?: (e: React.MouseEvent<any>) => void
+  afterClose?: () => void
+  width?: string | number
+  footer?: React.ReactNode
+  okText?: string
+  cancelText?: string
+  maskClosable?: boolean
+  style?: React.CSSProperties
+  wrapClassName?: string
+  maskTransitionName?: string
+  transitionName?: string
+  className?: string
+  getContainer?: (instance: React.ReactInstance) => HTMLElement
+}
 
 let ID = 0
 function generateId() {
@@ -15,7 +35,7 @@ export interface ICommonModalProps<IResult, IInput> {
 
 export interface IModal<IResult, IInput> {
   id: string
-  modalProps: ModalProps
+  modalProps: IModalProps
   Component: React.ComponentClass<ICommonModalProps<IResult, IInput>>
   props: ICommonModalProps<IResult, IInput>
   data: IInput
@@ -26,7 +46,7 @@ export class ModalStore {
 
   @action
   add<IResult, IInput>(
-    modalProps: ModalProps,
+    modalProps: IModalProps,
     Component: React.ComponentClass<ICommonModalProps<IResult, IInput>>,
     data: IInput
   ): Promise<IResult> {
@@ -46,7 +66,7 @@ export class ModalStore {
         confirmLoading: false,
         footer: null,
         ...modalProps
-      }) as ModalProps
+      }) as IModalProps
 
       const id = generateId()
       this.modals.push({

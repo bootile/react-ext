@@ -1,13 +1,15 @@
 # 封装的模态框
 
-1. 在全局根组件下添加 ModalContainer 组件实例，注意：全局只能出现一次
-```html
+1. 在全局根组件下添加 ModalContainer 组件实例
+```jsx
+import { modalStore } from "es-base/src/es-modal"
+
 <Provider {...stores}>
   <LocaleProvider locale={antd}>
     <IntlProvider locale={locale} messages={messages}>
       <div>
         {renderRouter(routes)}
-        <ModalContainer />
+        <ModalContainer store={modalStore} />
       </div>
     </IntlProvider>
   </LocaleProvider>

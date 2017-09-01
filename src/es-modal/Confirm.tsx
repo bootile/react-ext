@@ -3,7 +3,6 @@ import { autobind } from "core-decorators"
 
 import { ICommonModalProps } from "./ModalStore"
 import { Icon, Row, Col, Button } from "antd"
-import { FormattedMessage as FM } from "react-intl"
 
 export interface IConfirmModalInput {
   title: JSX.Element | string
@@ -41,16 +40,14 @@ export class ConfirmModal extends React.Component<
       fontSize: "14px"
     } as any
 
-    const okText = this.props.data.okText || <FM id="modal.ok" />
-    const cancelText = this.props.data.cancelText || <FM id="modal.cancel" />
+    const okText = this.props.data.okText || "确定"
+    const cancelText = this.props.data.cancelText || "取消"
 
     return (
       <div style={wrapperStyle}>
         <header>
           <Icon type="question-circle" style={iconStyle} />
-          <span style={titleStyle}>
-            {this.props.data.title}
-          </span>
+          <span style={titleStyle}>{this.props.data.title}</span>
         </header>
         <main style={{ margin: "8px 0 30px 42px" }}>
           {this.props.data.content}

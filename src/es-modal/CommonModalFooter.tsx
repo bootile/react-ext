@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Row, Col, Button } from "antd"
-import { FormattedMessage as FM } from "react-intl"
 
 export interface ICommonModalFooterProps {
   onOk: () => void
@@ -16,8 +15,8 @@ export const CommonModalFooter = (props: ICommonModalFooterProps) => {
     borderTop: "1px solid #e9e9e9"
   }
 
-  const okText = props.okText || <FM id="modal.ok" />
-  const cancelText = props.cancelText || <FM id="modal.cancel" />
+  const okText = props.okText || "确定"
+  const cancelText = props.cancelText || "取消"
 
   return (
     <footer style={style}>

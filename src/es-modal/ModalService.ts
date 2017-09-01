@@ -7,7 +7,7 @@ import { ConfirmModal, IConfirmModalInput } from "./Confirm"
 import { AlertModal, IAlertModalInput, AlertType } from "./Alert"
 
 @autobind
-export class ModalFactory {
+export class ModalService {
   static create<IResult, IInput>(
     store: ModalStore,
     modalProps: ModalProps,
@@ -50,7 +50,7 @@ export class ModalFactory {
     data: IAlertModalInput,
     modalProps?: ModalProps
   ) {
-    ModalFactory.alert(store, "info", data, modalProps)
+    ModalService.alert(store, "info", data, modalProps)
   }
 
   static success(
@@ -58,7 +58,7 @@ export class ModalFactory {
     data: IAlertModalInput,
     modalProps?: ModalProps
   ) {
-    ModalFactory.alert(store, "success", data, modalProps)
+    ModalService.alert(store, "success", data, modalProps)
   }
 
   static error(
@@ -66,7 +66,7 @@ export class ModalFactory {
     data: IAlertModalInput,
     modalProps?: ModalProps
   ) {
-    ModalFactory.alert(store, "error", data, modalProps)
+    ModalService.alert(store, "error", data, modalProps)
   }
 
   static warning(
@@ -74,6 +74,6 @@ export class ModalFactory {
     data: IAlertModalInput,
     modalProps?: ModalProps
   ) {
-    ModalFactory.alert(store, "warning", data, modalProps)
+    ModalService.alert(store, "warning", data, modalProps)
   }
 }

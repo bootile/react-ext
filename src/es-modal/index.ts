@@ -1,5 +1,5 @@
 export * from "./ModalContainer"
-export * from "./ModalFactory"
+export * from "./ModalStore"
 export * from "./Alert"
 export * from "./CommonModalFooter"
 export * from "./Confirm"

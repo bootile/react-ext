@@ -1,6 +1,8 @@
 import * as React from "react"
 import { observable, action } from "mobx"
-// import { ModalProps } from "antd/lib/modal/Modal.d"
+import { ModalProps } from "antd/lib/modal/Modal.d"
+import { AlertModal, IAlertModalInput, AlertType } from "./Alert"
+
 interface IModalProps {
   visible?: boolean
   confirmLoading?: boolean
@@ -90,5 +92,32 @@ export class ModalStore {
       return
     }
     this.modals.splice(index, 1)
+  }
+
+  alert(type: AlertType, data: IAlertModalInput, modalProps?: ModalProps) {
+    modalProps = {
+      ...modalProps,
+      width: 416
+    }
+    return this.add<{}, IAlertModalInput>(modalProps, AlertModal, {
+      ...data,
+      type
+    })
+  }
+
+  info(data: IAlertModalInput, modalProps?: ModalProps) {
+    this.alert("info", data, modalProps)
+  }
+
+  success(data: IAlertModalInput, modalProps?: ModalProps) {
+    this.alert("success", data, modalProps)
+  }
+
+  error(data: IAlertModalInput, modalProps?: ModalProps) {
+    this.alert("error", data, modalProps)
+  }
+
+  warning(data: IAlertModalInput, modalProps?: ModalProps) {
+    this.alert("warning", data, modalProps)
   }
 }

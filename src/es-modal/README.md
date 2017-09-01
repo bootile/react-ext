@@ -2,7 +2,8 @@
 
 1. 在全局根组件下添加 ModalContainer 组件实例
 ```jsx
-import { modalStore } from "es-base/src/es-modal"
+import { ModalStore } from "es-base/src/es-modal"
+const modalStore = new ModalStore()
 
 <Provider {...stores}>
   <LocaleProvider locale={antd}>
@@ -46,10 +47,8 @@ export class EditUserModal extends React.Component<
 
 3. 在使用的地方
 ```typescript
-import { ModalService } from "es-base/src/es-modal"
-
 ...
-    ModalService.create<IUser, IUser>(
+    modalStore.add<IUser, IUser>(
       { title },
       EditUserModal
     ).then(onOk, onCancel)

@@ -2,8 +2,11 @@ import * as React from "react"
 import { Row, Col, Button } from "antd"
 
 export interface ICommonModalFooterProps {
-  onOk: () => void
-  onCancel: () => void
+  hideOk?: boolean
+  hideCancel?: boolean
+
+  onOk?: () => void
+  onCancel?: () => void
   okText?: JSX.Element | string
   cancelText?: JSX.Element | string
 }
@@ -21,16 +24,20 @@ export const CommonModalFooter = (props: ICommonModalFooterProps) => {
   return (
     <footer style={style}>
       <Row type="flex" justify="end" gutter={10}>
-        <Col>
-          <Button size="large" onClick={props.onCancel}>
-            {cancelText}
-          </Button>
-        </Col>
-        <Col>
-          <Button size="large" type="primary" onClick={props.onOk}>
-            {okText}
-          </Button>
-        </Col>
+        {!props.hideCancel && (
+          <Col>
+            <Button size="large" onClick={props.onCancel}>
+              {cancelText}
+            </Button>
+          </Col>
+        )}
+        {!props.hideOk && (
+          <Col>
+            <Button size="large" type="primary" onClick={props.onOk}>
+              {okText}
+            </Button>
+          </Col>
+        )}
       </Row>
     </footer>
   )

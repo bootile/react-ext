@@ -1,6 +1,6 @@
 {
   "name": "es-base",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "public base project for all es-portal related projects",
   "main": "src/index.ts",
   "scripts": {
@@ -13,21 +13,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "antd": "^3.21.2",
+    "antd": "^3.22.0",
     "axios": "^0.19.0",
     "core-decorators": "^0.20.0",
     "mobx": "^5.13.0",
-    "mobx-react": "^6.1.2",
+    "mobx-react": "^6.1.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-intl": "^3.1.2",
+    "react-intl": "^3.1.9",
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@types/core-decorators": "^0.20.0",
-    "@types/react": "^16.9.0",
+    "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.5",
     "@types/react-intl": "^3.0.0",
     "@types/react-router-config": "^5.0.0",
